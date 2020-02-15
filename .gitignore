@@ -1,0 +1,11 @@
+asd
+.idea*
+.git
+.DS_Store
+.ftpquota
+_notes
+*.iml
+*node_modules
+node_modules/
+*package-lock.json
+node_modules
