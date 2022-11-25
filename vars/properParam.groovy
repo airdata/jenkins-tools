@@ -35,24 +35,24 @@ nexusAPIResponseSlurper = new JsonSlurper().parseText(nexusAPIResponse)
 def continuationToken = nexusAPIResponseSlurper.continuationToken
 
 def image_tag_list = []
-nexusAPIResponseSlurper.items.each { tag_metadata ->
-image_tag_list.add(tag_metadata.version)
+nexusAPIResponseSlurper.tags.each { tag_metadata ->
+ image_tag_list.add(tag_metadata)
 }
 
 try {
-    while(continuationToken != 'null'){
-    def nexusAPIResponseWithToken = new URL("${nexusURL}&continuationToken=${continuationToken}").text;
-    println nexusAPIResponseWithToken
-    def nexusAPISlurperWithToken = [:]
-    def nexusAPIResponseSlurperWithToken = new JsonSlurper().parseText(nexusAPIResponseWithToken)
-    continuationToken = nexusAPIResponseSlurperWithToken.continuationToken
-    nexusAPIResponseSlurperWithToken.items.each { tag_metadata ->
-    image_tag_list.add(tag_metadata.version)
-    }
-    }
+ while(continuationToken != 'null'){
+   def nexusAPIResponseWithToken = new URL("${nexusURL}&continuationToken=${continuationToken}").text;
+   println nexusAPIResponseWithToken
+   def nexusAPISlurperWithToken = [:]
+   def nexusAPIResponseSlurperWithToken = new JsonSlurper().parseText(nexusAPIResponseWithToken)
+   continuationToken = nexusAPIResponseSlurperWithToken.continuationToken
+   nexusAPIResponseSlurperWithToken.tags.each { tag_metadata ->
+     image_tag_list.add(tag_metadata)
+   }
+ }
 }
 catch(Exception e){
-    println(e)
+ println(e)
 }
 return image_tag_list'''
             ]
