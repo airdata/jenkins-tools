@@ -1,3 +1,4 @@
+import groovy.json.JsonSlurper
 def call() {
     properties([
         parameters([
