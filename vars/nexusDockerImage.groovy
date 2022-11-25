@@ -1,6 +1,6 @@
 import groovy.json.JsonSlurper
 
-def test(nexusURL){
+def call (String nexusURL){
   // Import the JsonSlurper class to parse Dockerhub API response
   // Set the URL we want to read from, it is MySQL from official Library for this example, limited to 20 results only.
   docker_image_tags_url = nexusURL
