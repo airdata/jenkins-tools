@@ -10,13 +10,20 @@ def call() {
                 choices: ['dev', 'test','prod'],
                 description: 'Select the environment to deploy',
                 name: 'ENV'),
-                [ $class: 'ChoiceParameter',
+                [
+                $class: 'ChoiceParameter',
                 choiceType: 'PT_SINGLE_SELECT',
                 filterLength: 1,
                 filterable: false,
                 name: 'VER',
                 randomName: 'choice-parameter-1898886208177958',
-                script:[ $class: 'GroovyScript',
+                script:
+                [
+                    $class: 'GroovyScript',
+                    fallbackScript: [
+                        classpath: [],
+                        sandbox: false,
+                        script: ''],
                         script: [
                             classpath: [],
                             sandbox: false,
