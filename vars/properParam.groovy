@@ -1,4 +1,3 @@
-import groovy.json.JsonSlurper
 
 def call() {
     properties([
@@ -87,6 +86,7 @@ return image_tag_list'''
 
 @NonCPS
 private String scriptOfSource() {
+import groovy.json.JsonSlurper
     def nexusURL = "http://172.17.0.3:8081/repository/docker/v2/repository/docker/alpine/tags/list"
     def nexusAPIResponse = new URL(nexusURL).text;
     def nexusAPIResponseSlurper = [:]
