@@ -1,6 +1,6 @@
 /**
  * Example usage in jenkins:
- * gitRevert ("jenkins-caap01t@ifao.net", 'yaml-validation.yml', "${jenkins_qa_key}", "${jenkins_qa_passphrase}" )
+ * gitRevert ("jenkins@test.com", 'yaml-validation.yml', "${jenkins_qa_key}", "${jenkins_qa_passphrase}" )
 */
 
 def call (String userEmail, String userName, String gitUsername, String gitPassword, String gitUrl) {
