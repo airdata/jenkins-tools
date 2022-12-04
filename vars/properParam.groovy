@@ -87,8 +87,7 @@ return image_tag_list'''
 }
 
 
-@NonCPS
-def List scriptOfSource() {
+def scriptOfSource() {
     def nexusURL = "http://172.17.0.3:8081/repository/docker/v2/repository/docker/alpine/tags/list"
     def nexusAPIResponse = new URL(nexusURL).text;
     def nexusAPIResponseSlurper = [:]
