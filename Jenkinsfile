@@ -3,7 +3,7 @@ pipeline {
    stages {
         stage('Checkout') {
             steps {
-                sh "printenv"
+                sh "printenv && pwd"
             }
         }     
     }
