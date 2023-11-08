@@ -16,7 +16,7 @@ pipeline {
         stage('Main Branch Event') {
             when {
                 // This stage runs when the main branch is updated
-                expression { currentBuild.branch == 'master' }
+                expression { env.BRANCH_NAME == 'master' }
             }
             steps {
                 // Your main branch event processing steps go here
