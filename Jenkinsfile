@@ -5,7 +5,7 @@ pipeline {
         stage('Pull Request Event') {
             when {
                 // This stage runs when a pull request is opened or updated
-                expression { currentBuild.rawBuild.getCause(hudson.model.Cause$UserIdCause) }
+                expression { currentBuild.branch == 'PR-*' }
             }
             steps {
                 // Your pull request event processing steps go here
@@ -16,7 +16,7 @@ pipeline {
         stage('Main Branch Event') {
             when {
                 // This stage runs when the main branch is updated
-                expression { currentBuild.rawBuild.getCause(hudson.model.Cause$UpstreamCause) }
+                expression { currentBuild.branch == 'master' }
             }
             steps {
                 // Your main branch event processing steps go here
