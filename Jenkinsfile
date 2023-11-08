@@ -20,7 +20,7 @@ pipeline {
             }
             steps {
                 // Your main branch event processing steps go here
-                sh 'echo "Processing main branch event"'
+                sh 'echo "Processing main  branch event"'
             }
         }
     }
