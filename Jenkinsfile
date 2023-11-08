@@ -24,16 +24,4 @@ pipeline {
             }
         }
     }
-
-    post {
-        success {
-            // This block is executed when the build is successful
-            // You can add post-build actions here
-        }
-
-        failure {
-            // This block is executed when the build fails
-            // You can add post-failure actions here
-        }
-    }
 }
