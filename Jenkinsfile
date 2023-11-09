@@ -9,7 +9,7 @@ pipeline {
             }
             steps {
                 // Your pull request event processing steps go here
-                sh 'echo "Processing pull BRANCH_NAME.startsWith"'
+                sh 'echo "Processing pull BRANCH_NAME.startsWith PR-"'
             }
         }
 
@@ -20,8 +20,17 @@ pipeline {
             }
             steps {
                 // Your main branch event processing steps go here
-                sh 'echo "Processing main  currentBuild.branch"'
+                sh 'echo "Processing main  env.BRANCH_NAME == master"'
             }
+        }
+    }
+
+    post {
+        success {
+            echo 'Build and test succeeded!'
+        }
+        failure {
+            echo 'Build or test failed!'
         }
     }
 }
