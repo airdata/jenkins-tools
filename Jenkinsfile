@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     triggers {
-      githubPullRequests events: [Open()], spec: '', triggerMode: 'HEAVY_HOOKS_CRON'
+      githubPullRequests events: [Open()]
     }
 
     
