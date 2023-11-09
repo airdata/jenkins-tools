@@ -9,7 +9,7 @@ pipeline {
             }
             steps {
                 // Your pull request event processing steps go here
-                sh 'echo "Processing pull BRANCH_NAME.startsWith PR-"
+                sh 'echo "Processing pull BRANCH_NAME.startsWith PR-"'
             }
         }
 
