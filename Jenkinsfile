@@ -1,17 +1,10 @@
 pipeline {
     agent any
 
-    options {
-        // Define options as needed
-        skipDefaultCheckout(true) // Skip default checkout to customize SCM behavior
+    triggers {
+      githubPullRequests events: [Open()], spec: '', triggerMode: 'HEAVY_HOOKS_CRON'
     }
 
-    triggers {
-        githubPullRequests(
-            forks: true, 
-            branches: [[compareType: 'REGEXP', compare: '.*', pattern: '.*']]
-        ) // Trigger on pull request events
-    }
     
     stages {
         stage('Pull Request Event') {
