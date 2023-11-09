@@ -1,6 +1,10 @@
 pipeline {
     agent any
-
+    
+    triggers {
+        githubPullRequests() // Trigger on pull request events
+    }
+    
     stages {
         stage('Pull Request Event') {
             when {
