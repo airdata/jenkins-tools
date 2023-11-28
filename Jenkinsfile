@@ -26,6 +26,11 @@ pipeline {
     }
 
     post {
+        always {
+            script{
+                sh 'printenv'
+            }
+        }
         success {
             echo 'Build and test succeeded!'
         }
