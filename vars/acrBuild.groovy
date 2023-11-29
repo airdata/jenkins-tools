@@ -1,4 +1,3 @@
-
 /*
     This method is to build a docker image
     'registriesConf': This is a configuration mapping to allow to resolve against all these regisrties a single docker build. These allows to combine Docker registries when the 'docker build ...' is performed
