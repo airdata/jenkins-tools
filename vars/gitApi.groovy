@@ -1,4 +1,4 @@
-def getPrOpen(String credsID, String gitUser, String repoName){
+def getPrOpen(String credsID, String gitUserRepo, String repoName){
 
       withCredentials([usernamePassword(credentialsId: credsID, usernameVariable: 'gitUser', passwordVariable: 'gitPwd')]) {
           // Your build steps here
@@ -7,7 +7,7 @@ def getPrOpen(String credsID, String gitUser, String repoName){
               
               // Check if the pull request is open
               def prStatus = sh(script: "curl -s -H \"Authorization: Bearer \$gitPwd\" " +
-                  "\"https://api.github.com/repos/\$gitUser/\$repoName/pulls/\$CHANGE_ID\" | jq -r .state",
+                  "\"https://api.github.com/repos/\$gitUserRepo/\$repoName/pulls/\$CHANGE_ID\" | jq -r .state",
                   returnStdout: true).trim()
               
               if (prStatus == "open") {
