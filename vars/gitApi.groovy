@@ -11,8 +11,7 @@ def getPrOpen(String credsID){
           if (env.CHANGE_ID && env.CHANGE_TARGET) {
               echo "This build is triggered by a pull request."
               // Check if the pull request is open
-              def prStatus = sh(script: "curl -s -H \"Authorization: Bearer \$gitPwd\" " +
-                  "$GitHubApiPR" | jq -r .state",
+              def prStatus = sh(script: """curl -s -H "Authorization: Bearer $gitPwd $GitHubApiPR | jq -r .state""",
                   returnStdout: true).trim()
               
               if (prStatus == "open") {
