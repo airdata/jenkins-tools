@@ -1,4 +1,4 @@
-def getPrOpen(string credsID, string gitUser, String repoName){
+def getPrOpen(String credsID, String gitUser, String repoName){
 
       withCredentials([usernamePassword(credentialsId: 'credsID', usernameVariable: 'gitUser', passwordVariable: 'gitPwd')]) {
           // Your build steps here
