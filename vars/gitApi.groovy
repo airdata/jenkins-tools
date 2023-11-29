@@ -12,7 +12,7 @@ def getPrOpen(String credsID){
               echo "This build is triggered by a pull request."
               // Check if the pull request is open
               def prStatus = sh(script: "curl -s -H \"Authorization: Bearer \$gitPwd\" " +
-                  "\"${gitUserRepo}\" | jq -r .state",
+                  "\"${GitHubApiPR}\" | jq -r .state",
                   returnStdout: true).trim()
 
               
