@@ -1,6 +1,6 @@
 def getPrOpen(String credsID, String gitUser, String repoName){
 
-      withCredentials([usernamePassword(credentialsId: 'credsID', usernameVariable: 'gitUser', passwordVariable: 'gitPwd')]) {
+      withCredentials([usernamePassword(credentialsId: credsID, usernameVariable: 'gitUser', passwordVariable: 'gitPwd')]) {
           // Your build steps here
           if (env.CHANGE_ID && env.CHANGE_TARGET) {
               echo "This build is triggered by a pull request."
