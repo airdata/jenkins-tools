@@ -15,9 +15,9 @@ def getPrOpen(String credsID){
                   "\"${GitHubApiPR}\" | jq -r .state",
                   returnStdout: true).trim()
 
-              
               if (prStatus == "open") {
-                  echo "The pull request is open."
+                    return prStatus
+
               } else {
                   error "The pull request is not open."
               }
