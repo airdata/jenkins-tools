@@ -1,4 +1,4 @@
-def getPrOpen(String credsID, String gitUserRepo, String repoName){
+def getPrOpen(String credsID){
 
       def parts = env.CHANGE_URL.split("/")
       def repo = parts[3]
